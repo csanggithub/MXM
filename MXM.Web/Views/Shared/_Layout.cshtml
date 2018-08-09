@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 美熊妈</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #ea228a;border-color: #ea228a;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="border-color: #ea228a;">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("美熊妈", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color: #fdfdfd;" })
+            </div>
+            <div class="navbar-collapse collapse" style="border-color: #ea228a;">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("首页", "Index", "Home", new { area = "" }, new { @style = "color: #fdfdfd;" })</li>
+                    <li>@Html.ActionLink("关于", "About", "Home", new { area = "" }, new { @style = "color: #fdfdfd;" })</li>
+                    <li>@Html.ActionLink("联系方式", "Contact", "Home", new { area = "" }, new { @style = "color: #fdfdfd;" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 美熊妈</p>
+        </footer>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width:300px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        在线留言
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <label for="name">姓名</label>
+                    <input type="text" class="form-control" id="txtUserName" maxlength="20"
+                           placeholder="请输入名称">
+                    <label for="name">电话</label>
+                    <input type="text" class="form-control" id="txtPhone" maxlength="11"
+                           placeholder="请输入手机号码">
+                    <label for="name">留言</label>
+                    <textarea class="form-control" id="txtMessageContent" rows="6" cols="60" placeholder="请输入留言内容,1000个字以内." maxlength="1000"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" text-center="center">
+                        关闭
+                    </button>
+                    <button id="submitBtn" type="button" class="btn btn-primary" style="background-color: #ea228a;border-color: #ea228a;">
+                        提交留言
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="errmsg" class="alert alert-danger hidden"></div>
+                    <div id="successmsg" class="alert alert-success hidden"></div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+
+
+    <div class="side-bar">
+        @*<a href="#" class="icon-qq">QQ在线咨询</a>
+            <a href="#" class="icon-chat">微信<div class="chat-tips"><i></i><img style="width:138px;height:138px;" src="helloweba.jpg" alt="微信订阅号"></div></a>
+            <a target="_blank" href="http://www.weibo.com/helloweba" class="icon-blog">微博</a>*@
+        <a data-toggle="modal" data-target="#myModal" class="icon-mail" style="background-color: #ea228a;border-color: #ea228a;">留言</a>
+    </div>
+    <style type="text/css">
+        .side-bar a, .chat-tips i {
+            background: url(../../images/right_bg.png) no-repeat;
+        }
+
+        .side-bar {
+            width: 66px;
+            position: fixed;
+            bottom: 200px;
+            right: 25px;
+            font-size: 0;
+            line-height: 0;
+            z-index: 100;
+        }
+
+            .side-bar a {
+                width: 66px;
+                height: 66px;
+                display: inline-block;
+                background-color: #ddd;
+                margin-bottom: 2px;
+            }
+
+                .side-bar a:hover {
+                    background-color: #669fdd;
+                }
+
+            .side-bar .icon-qq {
+                background-position: 0 -62px;
+            }
+
+            .side-bar .icon-chat {
+                background-position: 0 -130px;
+                position: relative;
+            }
+
+                .side-bar .icon-chat:hover .chat-tips {
+                    display: block;
+                }
+
+            .side-bar .icon-blog {
+                background-position: 0 -198px;
+            }
+
+            .side-bar .icon-mail {
+                background-position: 0 -266px;
+            }
+
+            .side-bar .icon-totop {
+                background-position: 0 -334px;
+            }
+
+        .chat-tips {
+            padding: 20px;
+            border: 1px solid #d1d2d6;
+            position: absolute;
+            right: 78px;
+            top: -55px;
+            background-color: #fff;
+            display: none;
+        }
+
+            .chat-tips i {
+                width: 9px;
+                height: 16px;
+                display: inline-block;
+                position: absolute;
+                right: -9px;
+                top: 80px;
+                background-position: -88px -350px;
+            }
+
+            .chat-tips img {
+                width: 138px;
+                height: 138px;
+            }
+    </style>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(function () {
+            $("#submitBtn").click(function () {
+            var userName = $.trim($("#txtUserName").val());
+                if (userName == "") {
+                    $("#errmsg").removeClass();
+                    $("#errmsg").addClass("alert alert-danger");
+                    $("#errmsg").html("姓名不能为空！");
+                    return;
+                }
+                var phonereg = /^[1][0-9]{10}$/;
+                var phone = $.trim($("#txtPhone").val());
+                if (phone == "" || !phonereg.test(phone)) {
+                    $("#errmsg").removeClass();
+                    $("#errmsg").addClass("alert alert-danger");
+                    $("#errmsg").html("手机号码有误，请检查！");
+                    return;
+                }
+                $("#errmsg").addClass("alert alert-danger hidden");
+                //$("#submitBtn").removeClass();
+                //$("#submitBtn").addClass("btn btn-primary disabled");
+                $('#submitBtn').prop('disabled', true);
+                var comment = $.trim($("#txtMessageContent").val());
+                alert(comment);
+                var model = { UserName: escape(userName), Phone: escape(phone), Comment: escape(comment)};
+                var actionUrl = '@Url.Action("AddMessageBoard")';
+                $.post(actionUrl, model, function (result) {
+                    if (result.Success != null && result.Success) {
+                        window.location = '@Url.Content("~/Home/Index")';
+                        $("#successmsg").removeClass();
+                        $("#successmsg").addClass("alert alert-danger");
+                        $('#submitBtn').prop('disabled', false);
+                        $("#successmsg").html("留言提交成功！");
+                        setTimeout("$('#myModal').modal('hide')", 3000);
+                        return;
+                    } else {
+                        $("#errmsg").removeClass();
+                        $("#errmsg").addClass("alert alert-danger");
+                        $("#errmsg").html(result.ErrorMessage);
+                        $('#submitBtn').prop('disabled', false);
+                        return;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
