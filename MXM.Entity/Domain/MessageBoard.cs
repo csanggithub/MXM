@@ -48,6 +48,16 @@ namespace MXM.Entity.Domain
         public string Host { get; set; }
 
         /// <summary>
+        /// 获取当前页面url 
+        /// </summary>
+        public string RequestUrl { get; set; }
+
+        /// <summary>
+        /// Url来源途径，获取上一页面url
+        /// </summary>
+        public string UrlReferrer { get; set; }
+
+        /// <summary>
         /// 创建时间
         /// </summary>
         public DateTime CreateTime { get; set; }

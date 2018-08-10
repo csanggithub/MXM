@@ -47,6 +47,8 @@ namespace MXM.Web.Controllers.Controllers
             try
             {
                 var host= HttpUtility.UrlDecode(HttpContext.Request.Url.Host.ToString()??string.Empty);
+                var requestUrl = HttpUtility.UrlDecode(HttpContext.Request.Url.ToString() ?? string.Empty);
+                var urlReferrer = HttpUtility.UrlDecode(HttpContext.Request.UrlReferrer.ToString());
                 var userName = HttpUtility.UrlDecode(form["UserName"].ToString() ?? string.Empty);
                 var phone = HttpUtility.UrlDecode(form["Phone"].ToString() ?? string.Empty);
                 var messageContent = HttpUtility.UrlDecode(form["Comment"].ToString()??string.Empty);
@@ -66,6 +68,8 @@ namespace MXM.Web.Controllers.Controllers
                     MessageContent = HttpUtility.UrlDecode(messageContent.Trim()),
                     ClientIp = IPAddressHelper.GetClientIp(),
                     LocalIp = IPAddressHelper.GetLocalIp(),
+                    RequestUrl=requestUrl,
+                    UrlReferrer=urlReferrer,
                     Host= host,
                     CreateTime = DateTime.Now
                 };
