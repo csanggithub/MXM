@@ -12,6 +12,7 @@ namespace MXM.Web.Controllers.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();
@@ -72,7 +73,7 @@ namespace MXM.Web.Controllers.Controllers
                 messageBoard.Add(entity);
                 return Json(new { Success = true, }, JsonRequestBehavior.DenyGet);
             }
-            catch(Exception ex)
+            catch
             {
                 return Json(new { Success = false, ErrorMessage = "留言失败，请稍后重试！"}, JsonRequestBehavior.DenyGet);
             }
