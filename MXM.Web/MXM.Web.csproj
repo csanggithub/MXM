@@ -156,6 +156,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\fjpc\Controllers\HomeController.cs" />
+    <Compile Include="Areas\fjpc\fipcAreaRegistration.cs" />
+    <Compile Include="Areas\fjwap\Controllers\HomeController.cs" />
+    <Compile Include="Areas\fjwap\fjwapAreaRegistration.cs" />
+    <Compile Include="Areas\fuji\Controllers\HomeController.cs" />
+    <Compile Include="Areas\fuji\fujiAreaRegistration.cs" />
+    <Compile Include="Areas\kc\Controllers\HomeController.cs" />
+    <Compile Include="Areas\kc\kcAreaRegistration.cs" />
+    <Compile Include="Areas\shaola\Controllers\HomeController.cs" />
+    <Compile Include="Areas\shaola\shaolaAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,6 +206,17 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\shaola\Views\web.config" />
+    <Content Include="Areas\fuji\Views\web.config" />
+    <Content Include="Areas\fjpc\Views\web.config" />
+    <Content Include="Areas\fjwap\Views\web.config" />
+    <Content Include="Areas\kc\Views\web.config" />
+    <Content Include="Areas\fjpc\Views\Home\Index.cshtml" />
+    <Content Include="Areas\fjwap\Views\Home\Index.cshtml" />
+    <Content Include="Areas\fuji\Views\Home\Index.cshtml" />
+    <Content Include="Areas\kc\Views\Home\Index.cshtml" />
+    <Content Include="Areas\shaola\Views\Home\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -222,7 +243,18 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\fjpc\Models\" />
+    <Folder Include="Areas\fjpc\Views\Shared\" />
+    <Folder Include="Areas\fjwap\Models\" />
+    <Folder Include="Areas\fjwap\Views\Shared\" />
+    <Folder Include="Areas\fuji\Models\" />
+    <Folder Include="Areas\fuji\Views\Shared\" />
+    <Folder Include="Areas\kc\Models\" />
+    <Folder Include="Areas\kc\Views\Shared\" />
+    <Folder Include="Areas\shaola\Models\" />
+    <Folder Include="Areas\shaola\Views\Shared\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -240,6 +272,10 @@
     <ProjectReference Include="..\MXM.BLL\MXM.BLL.csproj">
       <Project>{e9e100d7-99d1-407c-9ebf-ac48f1a779b9}</Project>
       <Name>MXM.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MXM.Common\MXM.Common.csproj">
+      <Project>{FD6B6C72-BE45-4A04-95AA-B1CD9322F877}</Project>
+      <Name>MXM.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MXM.Entity\MXM.Entity.csproj">
       <Project>{99027a6f-42c9-467c-9cf7-82ccb41211b5}</Project>

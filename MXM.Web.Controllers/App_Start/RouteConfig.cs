@@ -17,7 +17,7 @@ namespace MXM.Web.Controllers
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces:new[] { "MXM.Web.Controllers" }
+                namespaces:new[] { "MXM.Web.Controllers.*" }
             );
         }
     }
